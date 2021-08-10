@@ -8,7 +8,7 @@ contract('HelloWorld', () => {
   before(async () => {
     contractInstance = await HelloWorld.deployed();
   });
-
+/*
   // TEST 1
   it('initial name should be Ioana', async () => {
     // call contract's function
@@ -44,7 +44,7 @@ contract('HelloWorld', () => {
   });
 
   // TEST 3
-  it('should give struct details', async () => {
+  it('should give struct details', async () => { */
     // get initial number
     //const {0: variable_1, 1: variable_2} = await contractInstance.getStruct();
     /*contractInstance.getStruct().then(function(res){
@@ -53,7 +53,7 @@ contract('HelloWorld', () => {
       // check condition
       assert.equal(variable_1, 3, "struct incorrect");
       assert.equal(variable_2, 4, "struct incorrect");
-    })*/
+    })*/ /*
     const result = await contractInstance.getStruct();
     const {0: variable_1, 1: variable_2} = result;
     assert.equal(variable_1, 3, "struct incorrect");
@@ -66,15 +66,15 @@ contract('HelloWorld', () => {
     const {0: variable_1, 1: variable_2} = result;
     assert.equal(variable_1, 3, "struct incorrect");
     assert.equal(variable_2, 20, "struct incorrect");
-  });
+  }); */
 
   // TEST 3
   it('should give struct details', async () => {
-    contractInstance.getStructNoView("Diana").then(function(res){
+    contractInstance.getStructNotModified().then(function(res){
       var variable_1 = res[0];
       var variable_2 = res[1];
-      assert.equal(variable_1, 3, "struct incorrect");
-      assert.equal(variable_2, 4, "struct incorrect");
+      assert.equal(variable_1, 303, "struct incorrect");
+      assert.equal(variable_2, 14, "struct incorrect");
     })
   });
 
